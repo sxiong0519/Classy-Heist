@@ -1,6 +1,6 @@
 using System;
 
-namespace HeistII-Oceans5
+namespace HeistII_Oceans5
 {
     public class Bank
     {
@@ -11,11 +11,7 @@ namespace HeistII-Oceans5
         public bool IsSecure {
             get
             {
-                if ((CashOnHand + AlarmScore + VaultScore + SecurityGuardScore) <= 0)
-                {
-                    return false;
-                }
-                    return true;
+                return AlarmScore + VaultScore + SecurityGuardScore > 0; 
             }
         }
     }

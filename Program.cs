@@ -9,15 +9,15 @@ namespace HeistII_Oceans5
         {
             Bank newBank = new Bank
             {
-               AlarmScore = new Random().Next(0,101),
-               VaultScore = new Random().Next(0,101),
-               SecurityGuardScore = new Random().Next(0,101),
-               CashOnHand = new Random().Next(50000, 1000001)
+                AlarmScore = new Random().Next(0, 101),
+                VaultScore = new Random().Next(0, 101),
+                SecurityGuardScore = new Random().Next(0, 101),
+                CashOnHand = new Random().Next(50000, 1000001)
             };
             // Console.WriteLine($"{newBank.MostSecure} & {newBank.LeastSecure} & {newBank.AlarmScore} & {newBank.VaultScore} & {newBank.SecurityGuardScore} & {newBank.CashOnHand} & {newBank.IsSecure}");
             newBank.ReconReport();
 
-        
+
             List<IRobber> rolodex = new List<IRobber>{
                 new Hacker {Name = "Fingers", SkillLevel = 20, PercentageCut = 10},
                 new LockSpecialist {Name = "Lockin Lakin", SkillLevel = 75, PercentageCut = 20},
@@ -60,12 +60,19 @@ namespace HeistII_Oceans5
                         rolodex.Add(new Muscle { Name = memberName, SkillLevel = memberSkillLevel, PercentageCut = memberPercentageCut });
                     }
                     CreateMember();
+
+                }
+                int i = -1;
+                foreach (var member in rolodex)
+                {
+                    // i++;
+                    Console.WriteLine($"{i++}, {member.Name}, {member.Specialty}, {member.SkillLevel}, {member.PercentageCut}.");
                 }
 
             }
 
-            
-                
+
+
 
         }
     }

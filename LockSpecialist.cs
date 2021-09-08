@@ -6,11 +6,13 @@ namespace HeistII_Oceans5
     {
         public string Name { get; set; }
         public int SkillLevel { get; set; }
+        public string Specialty { get; } = "Lock Specialist";
+
         public int PercentageCut { get; set; }
 
         public void PerformSkill(Bank bank)
         {
-            bank.VaultScore -= SkillLevel; 
+            bank.VaultScore -= SkillLevel;
             Console.WriteLine($"{Name} is unlocking the vault. Decreased security {SkillLevel} points.");
             if (bank.VaultScore <= 0)
             {

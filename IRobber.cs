@@ -8,6 +8,7 @@ namespace HeistII_Oceans5
 
         string Name { get; set; }
         int SkillLevel { get; set; }
+        string Specialty { get; }
 
         int PercentageCut { get; set; }
 

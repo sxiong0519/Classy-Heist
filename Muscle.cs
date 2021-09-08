@@ -6,11 +6,13 @@ namespace HeistII_Oceans5
     {
         public string Name { get; set; }
         public int SkillLevel { get; set; }
+        public string Specialty { get; } = "Muscle";
+
         public int PercentageCut { get; set; }
 
         public void PerformSkill(Bank bank)
         {
-            bank.SecurityGuardScore -= SkillLevel; 
+            bank.SecurityGuardScore -= SkillLevel;
             Console.WriteLine($"{Name} is knocking out the guards! Decreased security {SkillLevel} points.");
             if (bank.SecurityGuardScore <= 0)
             {

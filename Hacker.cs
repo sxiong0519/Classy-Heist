@@ -7,6 +7,7 @@ namespace HeistII_Oceans5
     {
         public string Name { get; set; }
         public int SkillLevel { get; set; }
+        public string Specialty { get; } = "Hacker";
 
         public int PercentageCut { get; set; }
 

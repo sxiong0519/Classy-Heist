@@ -10,7 +10,12 @@ namespace HeistII_Oceans5
 
         public void PerformSkill(Bank bank)
         {
-            // to implement later
+            bank.SecurityGuardScore -= SkillLevel 
+            Console.WriteLine($"{Name} is knocking out the guards! Decreased security {SkillLevel} points.");
+            if (bank.SecurityGuardScore <= 0)
+            {
+                Console.WriteLine($"{Name} has knocked out the guards!");
+            }
         }
     }
 }

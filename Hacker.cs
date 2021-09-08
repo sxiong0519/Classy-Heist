@@ -13,8 +13,12 @@ namespace HeistII_Oceans5
 
         public void PerformSkill(Bank bank)
         {
-
-            Console.WriteLine($"{Name} has a skill of {SkillLevel} and demands {PercentageCut} from the total take ");
+            bank.AlarmScore -= SkillLevel 
+            Console.WriteLine($"{Name} is hacking the alarm system. Decreased security {SkillLevel} points.");
+            if (bank.AlarmScore <= 0)
+            {
+                Console.WriteLine($"{Name} has disabled the alarm system!");
+            }
         }
     }
 }

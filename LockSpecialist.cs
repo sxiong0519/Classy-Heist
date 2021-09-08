@@ -10,7 +10,12 @@ namespace HeistII_Oceans5
 
         public void PerformSkill(Bank bank)
         {
-            // to implement later
+            bank.VaultScore -= SkillLevel 
+            Console.WriteLine($"{Name} is unlocking the vault. Decreased security {SkillLevel} points.");
+            if (bank.VaultScore <= 0)
+            {
+                Console.WriteLine($"{Name} has unlocked the vault!");
+            }
         }
     }
 }

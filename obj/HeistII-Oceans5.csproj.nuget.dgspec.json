@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\16154\\workspace\\HeistII-Oceans5\\HeistII-Oceans5.csproj": {}
+    "C:\\Users\\sue_x\\workspace\\Classy-Heist\\HeistII-Oceans5\\HeistII-Oceans5.csproj": {}
   },
   "projects": {
-    "C:\\Users\\16154\\workspace\\HeistII-Oceans5\\HeistII-Oceans5.csproj": {
+    "C:\\Users\\sue_x\\workspace\\Classy-Heist\\HeistII-Oceans5\\HeistII-Oceans5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\16154\\workspace\\HeistII-Oceans5\\HeistII-Oceans5.csproj",
+        "projectUniqueName": "C:\\Users\\sue_x\\workspace\\Classy-Heist\\HeistII-Oceans5\\HeistII-Oceans5.csproj",
         "projectName": "HeistII-Oceans5",
-        "projectPath": "C:\\Users\\16154\\workspace\\HeistII-Oceans5\\HeistII-Oceans5.csproj",
-        "packagesPath": "C:\\Users\\16154\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\16154\\workspace\\HeistII-Oceans5\\obj\\",
+        "projectPath": "C:\\Users\\sue_x\\workspace\\Classy-Heist\\HeistII-Oceans5\\HeistII-Oceans5.csproj",
+        "packagesPath": "C:\\Users\\sue_x\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sue_x\\workspace\\Classy-Heist\\HeistII-Oceans5\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\16154\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sue_x\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

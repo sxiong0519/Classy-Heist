@@ -99,13 +99,7 @@ namespace HeistII_Oceans5
                 }
                 else
                 {
-                    StartHeist(crew);
-                }
-            }
-
-            void StartHeist(List<IRobber> team)
-            {
-                foreach (IRobber t in team)
+                    foreach (IRobber t in crew)
                 {
                     t.PerformSkill(newBank);
                 }
@@ -117,12 +111,16 @@ namespace HeistII_Oceans5
                 else
                 {
                     Console.WriteLine("YOU DID IT! SUCCESS!!");
-                    foreach (IRobber t in team)
+                    foreach (IRobber t in crew)
                     {
-                        Console.WriteLine($"{t.Name} took {t.PercentageCut}% of the money.");
-                        newBank.CashOnHand *= (t.PercentageCut %= 100);                        
+                        double percent = t.PercentageCut * .01;
+                        double percentage = newBank.CashOnHand * percent;  
+                        double cash = Math.Round(percentage, 2);
+                        newBank.CashOnHand -= percentage;
+                        Console.WriteLine($"{t.Name} took ${cash} of the money.");
                     }
-                    Console.WriteLine($"You're left with ${newBank.CashOnHand}.");
+                    Console.WriteLine($"You're left with ${(newBank.CashOnHand) * ((100-TotalPercentageCut)*.01)}.");
+                }
                 }
             }
         }

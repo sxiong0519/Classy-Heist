@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+
 
 namespace HeistII_Oceans5
 {
@@ -24,10 +26,10 @@ namespace HeistII_Oceans5
                 new Muscle {Name = "BigGuns", SkillLevel = 45, PercentageCut = 25},
                 new Hacker { Name ="Hardison", SkillLevel = 10, PercentageCut = 7},
                 new LockSpecialist { Name = "Parker", SkillLevel = 15, PercentageCut = 10},
-                new Muscle { Name = "Eliot", SkillLevel = 20, PercentageCut = 12},
-                new Hacker {Name = "Kwik Tips", SkillLevel = 55, PercentageCut = 20},
+                new Muscle { Name = "Eliot", SkillLevel = 20, PercentageCut = 70},
+                new Hacker {Name = "Kwik Tips", SkillLevel = 10, PercentageCut = 20},
                 new LockSpecialist {Name = "Randy", SkillLevel = 30, PercentageCut = 15},
-                new Muscle {Name = "Bane", SkillLevel = 40, PercentageCut = 33}
+                new Muscle {Name = "Bane", SkillLevel = 40, PercentageCut = 10}
             };
             CreateMember();
             void CreateMember()
@@ -60,20 +62,69 @@ namespace HeistII_Oceans5
                         rolodex.Add(new Muscle { Name = memberName, SkillLevel = memberSkillLevel, PercentageCut = memberPercentageCut });
                     }
                     CreateMember();
-
                 }
-                int i = -1;
+            }
+
+            List<IRobber> crew = new List<IRobber> { };
+
+            CreateCrew();
+
+            void CreateCrew()
+            {
+                int TotalPercentageCut = 100;
+                foreach (var member in crew)
+                {
+                    TotalPercentageCut -= member.PercentageCut;
+                }
+                Console.WriteLine($"Current Percent Cut= {TotalPercentageCut}");
+
+                rolodex.RemoveAll(m => TotalPercentageCut - m.PercentageCut < 0);
+
+                int i = 1;
+
                 foreach (var member in rolodex)
                 {
-                    // i++;
                     Console.WriteLine($"{i++}, {member.Name}, {member.Specialty}, {member.SkillLevel}, {member.PercentageCut}.");
                 }
 
+                Console.WriteLine("Select index value of a member you would like to join your team.");
+
+                string selectedMember = Console.ReadLine();
+
+                if (selectedMember != "")
+                {
+                    crew.Add(rolodex[int.Parse(selectedMember) - 1]);
+                    rolodex.RemoveAt(int.Parse(selectedMember) - 1);
+                    CreateCrew();
+                }
+                else
+                {
+                    StartHeist(crew);
+                }
             }
 
+            void StartHeist(List<IRobber> team)
+            {
+                foreach (IRobber t in team)
+                {
+                    t.PerformSkill(newBank);
+                }
 
-
-
+                if (newBank.IsSecure)
+                {
+                    Console.WriteLine("Unfortunately, you got caught...");
+                }
+                else
+                {
+                    Console.WriteLine("YOU DID IT! SUCCESS!!");
+                    foreach (IRobber t in team)
+                    {
+                        Console.WriteLine($"{t.Name} took {t.PercentageCut}% of the money.");
+                        newBank.CashOnHand *= (t.PercentageCut %= 100);                        
+                    }
+                    Console.WriteLine($"You're left with ${newBank.CashOnHand}.");
+                }
+            }
         }
     }
 }
